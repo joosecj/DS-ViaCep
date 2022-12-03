@@ -1,4 +1,6 @@
 import Address from "../models/address.js";
+import * as addressService from "../services/address-service.js";
+import * as listController from '../controllers/list-controller.js';
 
 
 function State() {
@@ -28,13 +30,35 @@ export function init() {
     state.btnClear = document.forms.newAddress.btnClear;
 
     state.errorCep = document.querySelector('[data-error="cep"]');
-
     state.ErrorNumber = document.querySelector('[data-error="number"]');
 
-
-
     state.inputNumber.addEventListener('change', handleInputNumberChange);
+    state.inputNumber.addEventListener('keyup', handleInputNumberKeyup);
     state.btnClear.addEventListener('click', handleBtnClearClick);
+    state.btnSave.addEventListener('click', handleBtnSaveClick);
+    state.inputCep.addEventListener('change', handleInputCepChange);
+
+}
+
+async function handleInputCepChange(event) {
+    const cep = event.target.value;
+   
+    try {
+        const address = await addressService.findByCep(cep);
+
+        state.inputCity.value = address.city;
+        state.inputStreet.value = address.street;
+        state.address = address;
+
+        setFormError("cep", "");
+        state.inputNumber.focus();
+
+        console.log(address);
+    } catch (e) {
+        state.inputStreet.value = "";
+        state.inputCity.value = "";
+        setFormError("cep", "Informe um CEP válido");
+    }
 }
 
 function handleInputNumberChange(event) {
@@ -43,6 +67,15 @@ function handleInputNumberChange(event) {
     } else {
         setFormError("number", "");
     }
+}
+
+function handleInputNumberKeyup(event) {
+    state.address.number = event.target.value;
+}
+
+async function handleBtnSaveClick(event) {
+    event.preventDefault();
+    listController.addCard(state.address);
 }
 
 function handleBtnClearClick(event) {
