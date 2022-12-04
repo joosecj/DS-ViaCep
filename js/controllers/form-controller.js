@@ -52,8 +52,6 @@ async function handleInputCepChange(event) {
 
         setFormError("cep", "");
         state.inputNumber.focus();
-
-        console.log(address);
     } catch (e) {
         state.inputStreet.value = "";
         state.inputCity.value = "";
