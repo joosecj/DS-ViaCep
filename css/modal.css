@@ -1,9 +1,17 @@
+:root{
+    --text-white: #fff;
+
+    --bg-black-rgba: rgba(0, 0, 0, 0.5);
+    --bg-grey: #c9c9c9;
+    --bg-dark-grey: #8F8F8F;
+}
+
 .modal-container {
     position: fixed;
     top: 0;
     left: 0;
     padding: 0 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--bg-black-rgba);
     height: 100vh;
     width: 100%;
     z-index: 1;
@@ -19,16 +27,16 @@
 .modal-box {
     width: 100%;
     max-width: 480px;
-    background-color: #444;
+    background-color: var(--bg-dark-grey);
     padding: 20px;
     border-radius: 10px;
-    border: 10px solid #aaa;
+    border: 10px solid var(--bg-grey);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .modal-content {
-    color: #fff;
+    color: var(--text-white);
     margin-bottom: 10px;
 }

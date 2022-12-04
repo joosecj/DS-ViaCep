@@ -1,5 +1,17 @@
 @import 'modal.css';
 
+:root{
+    --text-white: #fff;
+    --text-error: #faa;
+    --text-light-gray: #c9c9c9;
+    --text-grey: #8F8F8F;
+
+    --bg-black: #000;
+    --bg-orange: #ff8400;
+    --bg-grey: #333;
+    --bg-btn-disable: #ddd;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -8,12 +20,12 @@
 }
 
 html, body {
-    background-color: #000;
+    background-color: var(--bg-black);
 }
 
 .nav-container {
     height: 80px;
-    background-color: #ff8400;
+    background-color: var(--bg-orange);
     width: 100%;
     padding: 0 20px;
     display: flex;
@@ -30,12 +42,12 @@ html, body {
 }
 
 .nav-main h1 {
-    color: #fff;
+    color: var(--text-white);
     font-size: 36px;
 }
 
 .contact-link {
-    color: #fff;
+    color: var(--text-white);
     cursor: pointer;
 }
 
@@ -45,7 +57,7 @@ html, body {
 }
 
 .card-form {
-    background-color: #333;
+    background-color: var(--bg-grey);
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -63,7 +75,7 @@ html, body {
 
 .error-message {
     margin-top: 5px;
-    color: #faa;
+    color: var(--text-error);
 }
 
 .form-input {
@@ -76,11 +88,11 @@ html, body {
 }
 
 .form-input::placeholder {
-    color: #c9c9c9;
+    color: var(text-light-gray);
 }
 
 .form-input:disabled {
-    background-color: #ddd;
+    background-color: var(--bg-btn-disable);
 }
 
 .btn-container {
@@ -91,10 +103,10 @@ html, body {
 .btn {
     width: 250px;
     height: 50px;
-    background-color: #FF8400;
+    background-color: var(--bg-orange);
     border: 0;
     border-radius: 4px;
-    color: #FFF;
+    color: var(--text-white);
     font-weight: 700;
     font-size: 14px;
 }
@@ -116,7 +128,7 @@ html, body {
 }
 
 .card-list-item {
-    background-color: #333;
+    background-color: var(--bg-grey);
     margin-bottom: 20px;
     width: 100%;
     max-width: 900px;
@@ -125,16 +137,16 @@ html, body {
 }
 
 .card-list-item h3 {
-    color: #FF8400;
+    color: var(--bg-orange);
     font-size: 18px;
 }
 
 .address-line {
-    color: #FFF;
+    color: var(--text-white);
     font-size: 14px;
 }
 
 .address-cep {
-    color: #8F8F8F;
+    color: var(--text-grey);
     font-size: 12px;
 }
