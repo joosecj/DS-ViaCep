@@ -85,7 +85,6 @@ function handleBtnSaveClick(event) {
         listController.addCard(state.address);
         clearForm();
     }
-    
 }
 
 function handleBtnClearClick(event) {
